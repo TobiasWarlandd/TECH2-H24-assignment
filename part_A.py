@@ -21,24 +21,18 @@ def std_loops(x):
     sd : float
         Standard deviation of the list of numbers.
     """
-    # Computes the mean of x 
-    sumx = 0 
-    c1 = 0
-    for i in x:
-        c1 += 1
-        sumx = sumx + i 
-    
-    mean = sumx/c1
    
-    # Computes the mean of squares 
+    sumx = 0 
+    counter = 0
     sumS = 0 
-    c2 = 0
     for i in x:
-        c2 += 1
-        sumS = sumS + i ** 2
-    
-    meanS = sumS/c2
-    print(meanS)
+        counter += 1                                  
+        sumx = sumx + i                             # Computes the sum of X 
+        sumS = sumS + i ** 2                        # Computes the sum of Squares S 
+
+    mean = sumx/counter                             # The mean of X 
+    meanS = sumS/counter                            # The mean of Squares S
+
     #Comptues the variance 
     variance = meanS - mean**2
     
@@ -47,7 +41,7 @@ def std_loops(x):
 
     return standard_deviation 
 
-print(std_loops(num_lst))
+
 
 def std_builtin(x):
     """
@@ -65,19 +59,18 @@ def std_builtin(x):
     """
     
     meanx = sum(x)/len(x)
-    
-
     meanS = sum(i**2 for i in x)/len(x)
-   
-
     variance = meanS - meanx**2
-   
     standard_deviation = float(sqrt(variance))
 
     return standard_deviation
 
-print(std_builtin(num_lst))
+
+def main():
+    print(f'The standard deviation when using soley loops is {std_loops(num_lst)}')
+    print(f'The standard deviation when using built in functions is {std_builtin(num_lst)}')
+    print(f'The standard deviation when using the numpy function std() {numpy.std(num_lst)}')
 
 
-#Using the std function from numpy
-print(numpy.std(num_lst))
+if __name__ == "__main__":
+    main()
