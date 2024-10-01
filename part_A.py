@@ -23,28 +23,31 @@ def std_loops(x):
     """
     # Computes the mean of x 
     sumx = 0 
+    c1 = 0
     for i in x:
+        c1 += 1
         sumx = sumx + i 
     
-    mean = sumx/x[-1]
-
+    mean = sumx/c1
+   
     # Computes the mean of squares 
     sumS = 0 
+    c2 = 0
     for i in x:
-        sumS = sumS ** 2 + i 
+        c2 += 1
+        sumS = sumS + i ** 2
     
-    meanS = sumS/x[-1]
-
+    meanS = sumS/c2
+    print(meanS)
     #Comptues the variance 
     variance = meanS - mean**2
-
+    
     # Compute the standard deviation 
     standard_deviation = float(sqrt(variance))
 
     return standard_deviation 
 
 print(std_loops(num_lst))
-
 
 def std_builtin(x):
     """
@@ -61,3 +64,20 @@ def std_builtin(x):
         Standard deviation of the list of numbers.
     """
     
+    meanx = sum(x)/len(x)
+    
+
+    meanS = sum(i**2 for i in x)/len(x)
+   
+
+    variance = meanS - meanx**2
+   
+    standard_deviation = float(sqrt(variance))
+
+    return standard_deviation
+
+print(std_builtin(num_lst))
+
+
+#Using the std function from numpy
+print(numpy.std(num_lst))
