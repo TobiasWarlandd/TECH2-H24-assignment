@@ -67,7 +67,7 @@ def std_builtin(x):
 
 
 def main():
-    print(f'The standard deviation when using soley loops is {std_loops(num_lst)}')
+    print(f'The standard deviation when using solely loops is {std_loops(num_lst)}')
     print(f'The standard deviation when using built in functions is {std_builtin(num_lst)}')
     print(f'The standard deviation when using the numpy function std() {numpy.std(num_lst)}')
 
